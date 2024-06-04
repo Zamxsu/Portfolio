@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+'use client'
 // import { useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
 
@@ -9,6 +11,7 @@ import MagicButton from "./MagicButton";
 import { GlobeDemo } from "./GridGlobe";
 import { BackgroundGradientAnimation } from "./BackgroundGradientAnimation";
 import { cn } from "@/utils/cn";
+import { useState } from "react";
 
 
 export const BentoGrid = ({
@@ -51,25 +54,26 @@ export const BentoGridItem = ({
   titleClassName?: string;
   spareImg?: string;
 }) => {
+
   const leftLists = ["ReactJS", "Express", "Typescript"];
   const rightLists = ["VueJS", "NextJS", "GraphQL"];
 
-  // const [copied, setCopied] = useState(false);
+  const [copied, setCopied] = useState(false)
 
-  // const defaultOptions = {
-  //   loop: copied,
-  //   autoplay: copied,
-  //   animationData: animationData,
-  //   rendererSettings: {
-  //     preserveAspectRatio: "xMidYMid slice",
-  //   },
-  // };
+  const defaultOptions = {
+    loop: copied,
+    autoplay: copied,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
 
-  // const handleCopy = () => {
-  //   const text = "hsu@jsmastery.pro";
-  //   navigator.clipboard.writeText(text);
-  //   setCopied(true);
-  // };
+  const handleCopy = () => {
+    const text = "hsu@jsmastery.pro";
+    navigator.clipboard.writeText(text);
+    setCopied(true);
+  };
 
   return (
     <div
@@ -111,7 +115,6 @@ export const BentoGridItem = ({
           )}
         </div>
         {id === 6 && (
-          // add background animation , remove the p tag
           <BackgroundGradientAnimation>
             <div className="absolute z-50 inset-0 flex items-center justify-center text-white font-bold px-4 pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl"></div>
           </BackgroundGradientAnimation>
@@ -175,18 +178,18 @@ export const BentoGridItem = ({
               {/* remove focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 */}
               {/* add handleCopy() for the copy the text */}
               <div
-                className={`absolute -bottom-5 right-0 "block"
+                className={`absolute -bottom-5 right-0 block"
                   }`}
               >
-                {/* <img src="/confetti.gif" alt="confetti" /> */}
-                {/* <Lottie options={defaultOptions} height={200} width={400} /> */}
+                <img src="/confetti.gif" alt="confetti" />
+                <Lottie options={ defaultOptions } height={ 400 } width={ 400 }/>
               </div>
 
               <MagicButton
-                title={"Email is Copied!"}
+                title={ copied ? "Email is Copied!" : "Copy my email"}
                 icon={<IoCopyOutline />}
                 position="left"
-                // handleClick={handleCopy}
+                handleClick={handleCopy}
                 otherClasses="!bg-[#161A31]"
               />
             </div>
