@@ -7,7 +7,6 @@ const Clients = () => {
          clients</span>
       </h1>
       <div className="flex flex-col items-center">
-        
       </div>
     </div>
   );
