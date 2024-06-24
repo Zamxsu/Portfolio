@@ -3,8 +3,8 @@ import { InfiniteMovingCards } from "./ui/InifiniteMovingCards";
 
 const Clients = () => {
   return (
-    <div className="py-20" id="projects">
-      <h1 className="heading">
+    <div className="py-20" id="testimonials">
+      <h1 className="heading mb-20">
         Kind words from
         <span className="text-purple"> satisfied clients</span>
       </h1>
@@ -13,6 +13,7 @@ const Clients = () => {
           items={testimonials}
           direction="right"
           speed="slow"
+          className="mb-10"
         />
 
         <div className="flex flex-wrap items-center justify-center gap-4 md:gap-16 max-lg:mt-10">
